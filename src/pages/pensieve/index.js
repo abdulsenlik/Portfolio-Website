@@ -143,7 +143,7 @@ const StyledPost = styled.li`
 `;
 
 const PensievePage = ({ location, data }) => {
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data?.allMarkdownRemark?.edges || [];
 
   return (
     <Layout location={location}>
@@ -160,11 +160,14 @@ const PensievePage = ({ location, data }) => {
         </header>
 
         <StyledGrid>
-          {posts.length > 0 &&
+          {posts.length > 0 ? (
             posts.map(({ node }, i) => {
-              const { frontmatter } = node;
-              const { title, description, slug, date, tags } = frontmatter;
-              const formattedDate = new Date(date).toLocaleDateString();
+              if (!node?.frontmatter) {return null;} // 🛑 Prevents errors
+
+              const { title, description, slug, date, tags } = node.frontmatter;
+              const formattedDate = date
+                ? new Date(date).toLocaleDateString()
+                : 'No date available';
 
               return (
                 <StyledPost key={i}>
@@ -176,25 +179,31 @@ const PensievePage = ({ location, data }) => {
                       <h5 className="post__title">
                         <Link to={slug}>{title}</Link>
                       </h5>
-                      <p className="post__desc">{description}</p>
+                      <p className="post__desc">{description || 'No description available'}</p>
                     </header>
 
                     <footer>
                       <span className="post__date">{formattedDate}</span>
                       <ul className="post__tags">
-                        {tags.map((tag, i) => (
-                          <li key={i}>
-                            <Link to={`/pensieve/tags/${kebabCase(tag)}/`} className="inline-link">
-                              #{tag}
-                            </Link>
-                          </li>
-                        ))}
+                        {tags &&
+                          tags.map((tag, i) => (
+                            <li key={i}>
+                              <Link
+                                to={`/pensieve/tags/${kebabCase(tag)}/`}
+                                className="inline-link">
+                                #{tag}
+                              </Link>
+                            </li>
+                          ))}
                       </ul>
                     </footer>
                   </div>
                 </StyledPost>
               );
-            })}
+            })
+          ) : (
+            <p>No posts found.</p> // 🚀 Show message if no posts exist
+          )}
         </StyledGrid>
       </StyledMainContainer>
     </Layout>
@@ -211,8 +220,11 @@ export default PensievePage;
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/posts/" }, frontmatter: { draft: { ne: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {
+        fileAbsolutePath: { regex: "/content/posts/" }
+        frontmatter: { draft: { ne: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

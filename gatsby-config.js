@@ -5,7 +5,7 @@ module.exports = {
     title: 'Abdul Senlik',
     description:
       'Full-Stack Developer specializing in React, Next.js, and building high-performance web applications',
-    siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
+    siteUrl: 'https://portfolio-website-p0tx5z7sz-abdulsenliks-projects.vercel.app', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@bchiang7',
   },
@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Brittany Chiang',
-        short_name: 'Brittany Chiang',
+        name: 'Abdul Senlik',
+        short_name: 'Abdul Senlik',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
