@@ -62,6 +62,7 @@ const StyledPic = styled.div`
     width: 100%;
     border-radius: var(--border-radius);
     background-color: var(--green);
+  
 
     &:hover,
     &:focus {
@@ -84,6 +85,7 @@ const StyledPic = styled.div`
       mix-blend-mode: multiply;
       filter: grayscale(100%) contrast(1);
       transition: var(--transition);
+      
     }
 
     &:before,
@@ -125,7 +127,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'SQL / MongoDB', 'Node.js', 'Prisma'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,12 +137,22 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+            Hello! My name is Abdul, and I’ve always been obsessed with figuring out how things work
+            —especially how to break them and put them back together in better ways. 
+            My introduction to coding wasn’t through a class or a tutorial; 
+            it was in 2012 when I learned to hack my teachers’ grade database passwords 
+            using Inspect Element. 
+            That little loophole gave me a glimpse of the massive world of code. 
+            And I was hooked.
             </p>
 
+            <p>
+                  Fast-forward to today, I have worked as a Full-Stack Developer at Skylark, 
+                  where I built immersive data visualizations and autonomous drone mapping systems. 
+                  I have also developed cutting-edge projects like a Netflix Clone and Twitter Clone, showcasing my expertise in Next.js, Prisma, and full-stack development.
+          </p>
+
+{/* 
             <p>
               Fast-forward to today, and I’ve had the privilege of working at{' '}
               <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
@@ -159,7 +171,7 @@ const About = () => {
               </a>{' '}
               that covers everything you need to build a web app with the Spotify API using Node
               &amp; React.
-            </p>
+            </p> */}
 
             <p>Here are a few technologies I’ve been working with recently:</p>
           </div>
