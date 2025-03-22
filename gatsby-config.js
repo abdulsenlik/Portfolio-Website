@@ -7,7 +7,7 @@ module.exports = {
       'Full-Stack Developer specializing in React, Next.js, and building high-performance web applications',
     siteUrl: 'https://portfolio-website-p0tx5z7sz-abdulsenliks-projects.vercel.app', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@bchiang7',
+    twitterUsername: '@abdulsenlik',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

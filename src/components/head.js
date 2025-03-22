@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 // https://www.gatsbyjs.com/docs/add-seo-component/
 
-const Head = ({ title, description, image }) => {
+const Head = ({ title, description }) => {
   const { pathname } = useLocation();
 
   const { site } = useStaticQuery(
@@ -25,13 +25,12 @@ const Head = ({ title, description, image }) => {
     `,
   );
 
-  const { defaultTitle, defaultDescription, siteUrl, defaultImage, twitterUsername } =
-    site.siteMetadata;
+  const { defaultTitle, defaultDescription, siteUrl, twitterUsername } = site.siteMetadata;
 
   const seo = {
-    title: title || defaultTitle || 'Abdul Senlik',
+    title: title || 'Abdul Senlik',
     description: description || defaultDescription || 'Full-Stack Developer ',
-    image: `${siteUrl}${image || defaultImage || '/abdul-preview.png'}`,
+    image: 'https://portfolio-website-183uo1v3o-abdulsenliks-projects.vercel.app/og.png?v=2', //
     url: `${siteUrl}${pathname}`,
   };
 
