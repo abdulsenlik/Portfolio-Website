@@ -1,12 +1,11 @@
 ---
 date: '2015-12-21'
-title: 'Creative Technologist Co-op'
-company: 'MullenLowe'
-location: 'Boston, MA'
-range: 'July - December 2015'
-url: 'https://us.mullenlowe.com/'
+title: 'Full Stack Developer Intern'
+company: 'Skylark Drones'
+location: 'Richardson, TX'
+range: 'Aug 2022 - June 2023'
 ---
 
-- Developed, maintained, and shipped production code for client websites primarily using HTML, CSS, Sass, JavaScript, and jQuery
-- Performed quality assurance tests on various sites to ensure cross-browser compatibility and mobile responsiveness
-- Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more
+– Developed drone-mapping backend with Python, Node.js, and REST APIs to support real-time flight data.
+– Integrated GPS and SQL datasets into custom dashboards, streamlining field operations and tracking.
+– Engineered backend pipelines and collaborated with 4 cross-functional teams to deliver full-stack features.
